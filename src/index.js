@@ -25,6 +25,8 @@ app.use("/otp-ttl", otpTtlRouter);
 
 app.use("/email-queue", emailQueueRouter);
 
+app.use("/bull-mq", bullMqRouter);
+
 app.get("/redis", async (req, res) => {
   const value = await connectRedis().get("test");
   res.send(value);
