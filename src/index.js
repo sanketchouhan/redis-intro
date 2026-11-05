@@ -5,6 +5,7 @@ import userProfileRouter from "./user-profile";
 import otpTtlRouter from "./otp-ttl";
 import emailQueueRouter from "./email-queue";
 import bullMqRouter from "./bull-mq";
+import pubSubRouter from "./pub-sub";
 
 const app = express();
 app.use(express.json());
@@ -26,6 +27,8 @@ app.use("/otp-ttl", otpTtlRouter);
 app.use("/email-queue", emailQueueRouter);
 
 app.use("/bull-mq", bullMqRouter);
+
+app.use("/pub-sub", pubSubRouter);
 
 app.get("/redis", async (req, res) => {
   const value = await connectRedis().get("test");
